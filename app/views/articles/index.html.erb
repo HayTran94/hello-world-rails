@@ -1,3 +1,11 @@
-<h1>Articles#index</h1>
-<h2>Hello world, Ruby</h2>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h2>Hello world, Ruby on Rails</h2>
+<a href="/articles/new">Create new</a>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <a href="/articles/<%=article.id %>">
+        <%= article.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>
