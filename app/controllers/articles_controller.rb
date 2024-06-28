@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :before_action
+  after_action :after_action
+  skip_before_action :before_action, only: [:new]
   def index
     @articles = Article.all
   end
@@ -45,5 +48,13 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def before_action
+    puts "before action"
+  end
+
+  def after_action
+    puts "after action"
   end
 end
